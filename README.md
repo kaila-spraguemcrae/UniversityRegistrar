@@ -4,21 +4,39 @@
 
 #### By Kaila Sprague McRae, Eric Endsley, & Danielle Thompson
 
+---
+
 ## Description
 
 This web application is for a university registrar to keep track of students & courses with the following functions:
 
 - Keeps track of all students enrolled at the university with name & date or enrollment.
-- Keeps track of all the
+- Keeps track of all the courses the university offers with course name & course number(ex. HIST100).
+- Assigns students to a course(s).
+
+Stretch:
+
+- Create departments where a major can be declared by students & a course can be assigned to a department upon creation.
+- Lists all the courses and all the students in a particular department.
+- Edit a student's file to show course completion status.
+- Lists all the courses a student has taken to compare to degree requirements.
+- View how many students have not completed courses in any particular department, to see which departments need help.
+
+---
 
 ## Technologies used
 
 - C# v 7.3
 - .NET Core v 2.2
-- MySQL
+- MySQL, MySQL Workbench
+- Entity Framework Core, CRUD, RESTful routing
 - dotnet script, REPL
 - ASP.NET MVC Core
 - Razor
+- VSCode
+- [SQL Design Planner](https://ondras.zarovi.cz/sql/demo/)
+
+---
 
 ## Installation Requirements
 
@@ -61,6 +79,10 @@ This web application is for a university registrar to keep track of students & c
 
 - Install dotnet script with the following terminal command `dotnet tool install -g dotnet-script`.
 
+#### Setting up a Local Database
+
+TODO
+
 #### Opening the Project on your Local System
 
 Once the project has been cloned to your computer and you have all the necessary items on your local computer, open the project in the application of your choice ((Visual Code Studio)[https://code.visualstudio.com/] was used and is recommended by the application builder), and run the following...
@@ -70,11 +92,7 @@ Once the project has been cloned to your computer and you have all the necessary
 - `dotnet run` will run the application.
 - `dotnet restore` to install packages listed in project's boilerplate.
 
-### Specs
-
-| Spec                                            | Input                       | Output  |
-| :---------------------------------------------- | :-------------------------- | :------ |
-| **Takes user To Do List item & adds to a list** | User enters: "Walk the dog" | Return: |
+---
 
 ## Known bugs
 
