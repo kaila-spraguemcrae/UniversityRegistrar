@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
+
 namespace Registrar.Controllers
 {
   public class StudentsController : Controller
@@ -32,7 +33,7 @@ namespace Registrar.Controllers
         _db.StudentCourse.Add(new StudentCourse() { CourseId = CourseId, StudentId = student.StudentId });
       }
       _db.SaveChanges();
-      return RedirectToAction("Index")
+      return RedirectToAction("Index");
     }
   }
 }

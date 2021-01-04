@@ -7,11 +7,11 @@ namespace Registrar.Models
   {
     public Student()
     {
-      //this.Courses = new HashSet<StudentCourse>();
+      this.Courses = new HashSet<StudentCourse>();
     }
     public int StudentId { get; set; }
     public string Name { get; set; }
     public DateTime EnrollmentDate { get; set; }
-    //public ICollection<StudentCourse> Courses { get; set; }
+    public virtual ICollection<StudentCourse> Courses { get; set; }
   }
 }
