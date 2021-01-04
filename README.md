@@ -81,7 +81,18 @@ Stretch:
 
 #### Setting up a Local Database
 
-TODO
+- Download [MySQL Server](https://dev.mysql.com/downloads/file/?id=484914).
+- Download [MySQL Workbench](https://dev.mysql.com/downloads/file/?id=484391).
+- (For more detailed instructions if either of the above technologies are unfamiliar to you, visit [this site](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql)).
+- Run `dotnet build` when the project is on your local machine.
+- Run `dotnet ef migrations add Initial`
+  --> If there is an error stating "Unable to resolve project", this means the command wasn't run in the correct directory.
+- Entity creates three files in the Migrations directory.
+- Run the following command: `dotnet ef database update`.
+
+#### Password Protection TODO
+
+TODO (.env or .gitignore for PW protection)
 
 #### Opening the Project on your Local System
 
@@ -89,8 +100,8 @@ Once the project has been cloned to your computer and you have all the necessary
 
 - Navigate to the project folder on your Terminal or CMD.
 - `dotnet build` will get bin/ and obj/ folders downloaded.
-- `dotnet run` will run the application.
 - `dotnet restore` to install packages listed in project's boilerplate.
+- `dotnet run` will run the application.
 
 ---
 
