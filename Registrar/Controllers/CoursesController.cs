@@ -35,5 +35,32 @@ namespace Registrar.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Details(int id)
+        {
+            var thisCourse = _db.Courses
+                .Include(course => course.Students)
+                .ThenInclude(join => join.Student)
+                .FirstOrDefault(course => course.CourseId == id);
+            return View(thisCourse);
+        }
+
+        public ActionResult AddStudent(int id)
+        {
+            var thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+            ViewBag.StudentId = new SelectList(_db.Students, "StudentId", "Name");
+            return View(thisCourse);
+        }
+
+        [HttpPost]
+        public ActionResult AddStudent(Course course, int StudentId)
+        {
+            if (StudentId != 0)
+            {
+                _db.StudentCourse.Add(new StudentCourse() { StudentId = StudentId, CourseId = course.CourseId });
+            }
+
+            _db.SaveChanges();
+            return RedirectToAction("Details", new { id = course.CourseId });
+        }
     }
 }

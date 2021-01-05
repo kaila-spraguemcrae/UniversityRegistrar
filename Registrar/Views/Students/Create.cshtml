@@ -1,7 +1,7 @@
 @{
   Layout = "_Layout";
 }
-@using MyMVCApp.Models
+
 @model Registrar.Models.Student
 
 <h3>Add a New Student</h3>
@@ -16,9 +16,13 @@
 
   @Html.Label("Add new course")
   @Html.DropDownList("CourseId")
-  @*Html.DropDownListFor<TModel,TProperty> TModel is type of mode, TProperty type of value*@
-  @* @Html.DropDownListFor(m => m.StudentGender, new SelectList(Enum.GetValues(typeof(Gender))), "Select Gender") *@
+  @*  @Html.CheckBox("CourseId")
 
-  <input type="submit" value="Add new student" class="btn btn-default" />
+  @foreach ("CourseID")
+  {
+    <li>@Html.CheckBox($"{course.CourseName}", new { id = course.CourseName })</li>
+  }
+  <input type="submit" value="Add new student" class="btn btn-default" /> *@
 }
+
 <p>@Html.ActionLink("Show all students", "Index")</p>
