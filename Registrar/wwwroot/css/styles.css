@@ -1,0 +1,16 @@
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+#footer {
+  text-align: center;
+  text-transform: uppercase;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  color: #ccc;
+  background: #333;
+  padding: 8px;
+}
