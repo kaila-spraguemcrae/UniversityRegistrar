@@ -1,7 +1,7 @@
 @{
   Layout = "_Layout";
 }
-
+@using MyMVCApp.Models
 @model Registrar.Models.Student
 
 <h3>Add a New Student</h3>
@@ -12,10 +12,12 @@
   @Html.TextBoxFor(model => model.Name)
 
   @Html.LabelFor(model => model.EnrollmentDate)
-  @Html.TextBoxFor(model => model.EnrollmentDate)
+  @Html.TextBoxFor(model => model.EnrollmentDate, new { @type = "date" })
 
   @Html.Label("Add new course")
   @Html.DropDownList("CourseId")
+  @*Html.DropDownListFor<TModel,TProperty> TModel is type of mode, TProperty type of value*@
+  @* @Html.DropDownListFor(m => m.StudentGender, new SelectList(Enum.GetValues(typeof(Gender))), "Select Gender") *@
 
   <input type="submit" value="Add new student" class="btn btn-default" />
 }

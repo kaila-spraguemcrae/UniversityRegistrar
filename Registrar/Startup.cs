@@ -46,7 +46,6 @@ namespace Registrar
         {
           await context.Response.WriteAsync("Something went wrong!");
         });
-
     }
   }
 }

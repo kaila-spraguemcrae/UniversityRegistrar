@@ -6,10 +6,10 @@
 
 <h1>Student Enrollment Information</h1>
 <hr />
-<h2>@Html.DisplayNameFor(model => model.Name)</h2>
-<h4>Date of Enrollment: @Html.DisplayNameFor(model => model.EnrollmentDate) </h4>
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+<h4>Date of Enrollment: @Html.DisplayFor(model => model.EnrollmentDate) </h4>
 
-if(@Model.Courses.Count == 0)
+@if(@Model.Courses.Count == 0)
 {
     <p>This student has not enrolled in any courses.</p>
 }
@@ -25,5 +25,4 @@ else
 }
 
 <p>@Html.ActionLink("Back to student directory", "Index")</p>
-<p>@Html.ActionLink("Back to home page", "Index", "Home")</p>
 @*Link to add a course*@
