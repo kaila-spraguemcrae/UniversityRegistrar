@@ -1,0 +1,29 @@
+@{
+    Layout = "_Layout";
+}
+
+@model Registrar.Models.Student
+
+<h1>Student Enrollment Information</h1>
+<hr />
+<h2>@Html.DisplayNameFor(model => model.Name)</h2>
+<h4>Date of Enrollment: @Html.DisplayNameFor(model => model.EnrollmentDate) </h4>
+
+if(@Model.Courses.Count == 0)
+{
+    <p>This student has not enrolled in any courses.</p>
+}
+else
+{
+    <h4>Course Schedule:</h4>
+    <ul>
+        @foreach(var join in Model.Courses)
+        {
+            <li>@join.Course.CourseName</li>
+        }
+    </ul>
+}
+
+<p>@Html.ActionLink("Back to student directory", "Index")</p>
+<p>@Html.ActionLink("Back to home page", "Index", "Home")</p>
+@*Link to add a course*@
