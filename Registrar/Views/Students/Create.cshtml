@@ -21,8 +21,8 @@
   @foreach ("CourseID")
   {
     <li>@Html.CheckBox($"{course.CourseName}", new { id = course.CourseName })</li>
-  }
-  <input type="submit" value="Add new student" class="btn btn-default" /> *@
+  } *@
+  <input type="submit" value="Add new student" class="btn btn-default" /> 
 }
 
 <p>@Html.ActionLink("Show all students", "Index")</p>
