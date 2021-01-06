@@ -10,11 +10,18 @@
 
 This web application is for a university registrar to keep track of students & courses with the following functions:
 
-- Keeps track of all students enrolled at the university with name & date or enrollment.
+- Keeps track of all students enrolled at the university with name & date of enrollment.
 - Keeps track of all the courses the university offers with course name & course number(ex. HIST100).
 - Assigns students to a course(s).
 
-Stretch:
+![SQL Design Plan](Registrar/wwwroot/img/designplan.png "SQL Design Plan")
+
+## Stretch Goals
+
+- Have a feature to not allow database to take in duplicate entries for either courses or students. For example, the same student cannot enroll twice in a specific course, and a specific course cannot add a student to its roster twice.
+- Add edit student & course functionality, as well as delete functionality for both.
+- Add course descriptions.
+- Make course adding into a checkbox format to add multiple courses per student at one time.
 
 - Create departments where a major can be declared by students & a course can be assigned to a department upon creation.
 - Lists all the courses and all the students in a particular department.
@@ -33,8 +40,8 @@ Stretch:
 - dotnet script, REPL
 - ASP.NET MVC Core
 - Razor
-- VSCode
 - [SQL Design Planner](https://ondras.zarovi.cz/sql/demo/)
+- [Visual Code Studio](https://code.visualstudio.com/)
 
 ---
 
@@ -90,15 +97,34 @@ Stretch:
 - Entity creates three files in the Migrations directory.
 - Run the following command: `dotnet ef database update`.
 
-#### Password Protection TODO
+#### MySQL Password Protection & .gitignore
 
-TODO (.env or .gitignore for PW protection)
+Once the project has been cloned to your computer and you have all the necessary items on your local computer, open the project in the application of your choice.
+
+Create a file in the root directory of the project called "appsettings.json". Add the following snippet of code to the appsettings.json file:
+
+```
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Port=3306;database=registrar;uid=root;pwd=YOUR-PASSWORD-HERE;"
+    }
+}
+```
+
+Where you see "YOUR-PASSWORD-HERE" is where you put the password you created for your MySQL server. Your server name and port might vary depending on your local system. Check MySQL Workbench Connections to determine if the local host and port number match and adjust as needed.
+
+Create a .gitignore file and add the following files & folders to it:
+
+- obj/
+- bin/
+- .vscode/
+- .DS_Store
+- appsettings.json
 
 #### Opening the Project on your Local System
 
-Once the project has been cloned to your computer and you have all the necessary items on your local computer, open the project in the application of your choice ((Visual Code Studio)[https://code.visualstudio.com/] was used and is recommended by the application builder), and run the following...
-
 - Navigate to the project folder on your Terminal or CMD.
+
 - `dotnet build` will get bin/ and obj/ folders downloaded.
 - `dotnet restore` to install packages listed in project's boilerplate.
 - `dotnet run` will run the application.
