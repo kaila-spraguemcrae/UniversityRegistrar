@@ -80,5 +80,20 @@ namespace Registrar.Controllers
             _db.SaveChanges();
             return RedirectToAction("Details", new { id = course.CourseId });
         }
+
+        public ActionResult Delete(int id)
+        {
+            var thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+            return View(thisCourse);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            var thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+            _db.Courses.Remove(thisCourse);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
