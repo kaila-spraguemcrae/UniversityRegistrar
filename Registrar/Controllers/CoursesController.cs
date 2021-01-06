@@ -95,5 +95,14 @@ namespace Registrar.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult DeleteStudent(int joinId)
+        {
+            var joinEntry = _db.StudentCourse.FirstOrDefault(entry => entry.StudentCourseId == joinId);
+            _db.StudentCourse.Remove(joinEntry);
+            _db.SaveChanges();
+            return RedirectToAction("Details", new { id = joinEntry.CourseId });
+        }
     }
 }
