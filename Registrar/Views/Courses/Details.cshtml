@@ -6,8 +6,7 @@
 
 <h2>Course Details</h2>
 <hr />
-<h3>@Html.DisplayFor(model => model.CourseName)</h3>
-<h4>Course Number: @Html.DisplayFor(model => model.CourseNumber) </h4>
+<h3>@Html.DisplayFor(model => model.CourseName) | @Html.DisplayFor(model => model.CourseNumber) </h3>
 
 @if(@Model.Students.Count == 0)
 {
@@ -25,4 +24,5 @@ else
 }
 
 <p>@Html.ActionLink("Add a student to course", "AddStudent", new { id = Model.CourseId })</p>
+<p>@Html.ActionLink("Edit Course Details", "Edit", new { id = Model.CourseId })</p>
 <p>@Html.ActionLink("Back to course directory", "Index")</p>
