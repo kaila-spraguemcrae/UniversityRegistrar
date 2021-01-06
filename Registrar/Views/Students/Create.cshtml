@@ -16,7 +16,24 @@
 
   @Html.Label("Add new course")
   @Html.DropDownList("CourseId")
-  @*  @Html.CheckBox("CourseId")
+
+  @for (int i = 0; i < ViewBag.Courses.Count(); i++)
+  {
+    var course = ViewBag.Courses[i];
+    @* @Html.LabelFor() *@
+    @Html.CheckBox("CourseId")
+  }
+  @*  
+  for (var i = 0; i < Model.UserRoles.Count(); i++)
+{
+    var role = Model.UserRoles[i];
+    @Html.HiddenFor(model => model.UserRoles[i].RoleId)
+    @Html.CheckBoxFor(model => model.UserRoles[i].Selected)
+    @Html.LabelFor(model=> model.UserRoles[i].Name, role.Name)
+}
+
+  
+  @Html.CheckBox("CourseId")
 
   @foreach ("CourseID")
   {
