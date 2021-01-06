@@ -88,7 +88,7 @@ namespace Registrar.Controllers
           var thisStudent = _db.Students.FirstOrDefault(student => student.StudentId == id);
           return View(thisStudent);
         }
-        
+
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -96,6 +96,15 @@ namespace Registrar.Controllers
           _db.Students.Remove(thisStudent);
           _db.SaveChanges();
           return RedirectToAction("Index");
+        }
+        
+        [HttpPost]
+        public ActionResult DeleteCourse(int joinId)
+        {
+          var joinEntry = _db.StudentCourse.FirstOrDefault(entry => entry.StudentCourseId == joinId);
+          _db.StudentCourse.Remove(joinEntry);
+          _db.SaveChanges();
+          return RedirectToAction("Details", new { id = joinEntry.StudentId});
         }
     }
 }
