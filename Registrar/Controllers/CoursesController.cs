@@ -62,5 +62,23 @@ namespace Registrar.Controllers
             _db.SaveChanges();
             return RedirectToAction("Details", new { id = course.CourseId });
         }
+
+        public ActionResult Edit(int id)
+        {
+            var thisCourse = _db.Courses.FirstOrDefault(course => course.CourseId == id);
+            ViewBag.StudentId = new SelectList(_db.Students, "StudentID", "Name");
+            return View(thisCourse);
+        }
+        [HttpPost]
+        public ActionResult Edit(Course course, int StudentId)
+        {
+            if (StudentId != 0)
+            {
+                _db.StudentCourse.Add(new StudentCourse() { StudentId = StudentId, CourseId = course.CourseId});
+            }
+            _db.Entry(course).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Details", new { id = course.CourseId });
+        }
     }
 }

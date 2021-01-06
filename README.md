@@ -19,7 +19,7 @@ This web application is for a university registrar to keep track of students & c
 ## Stretch Goals
 
 - Have a feature to not allow database to take in duplicate entries for either courses or students. For example, the same student cannot enroll twice in a specific course, and a specific course cannot add a student to its roster twice.
-- Add edit student & course functionality, as well as delete functionality for both.
+- Add edit and delete functionality for Courses.
 - Add course descriptions.
 - Make course adding into a checkbox format to add multiple courses per student at one time.
 
