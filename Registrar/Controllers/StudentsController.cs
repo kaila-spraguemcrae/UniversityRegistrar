@@ -20,11 +20,8 @@ namespace Registrar.Controllers
         }
 
         public ActionResult Create()
-        {
-          Dictionary<string, object> model = new Dictionary<string, object>();
+        {         
           ViewBag.CourseId = new SelectList(_db.Courses, "CourseId", "CourseName");
-          model.Add("CourseId", "CourseId");
-          
           return View();
         }
 
@@ -107,7 +104,7 @@ namespace Registrar.Controllers
           var joinEntry = _db.StudentCourse.FirstOrDefault(entry => entry.StudentCourseId == joinId);
           _db.StudentCourse.Remove(joinEntry);
           _db.SaveChanges();
-          return RedirectToAction("Details", new { id = joinEntry.StudentId });
+          return RedirectToAction("Details", new { id = joinEntry.StudentId});
         }
     }
 }
